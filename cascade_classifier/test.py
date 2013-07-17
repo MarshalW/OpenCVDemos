@@ -5,7 +5,11 @@ import cv2
 import datetime
 
 img = cv2.imread("p1.jpg")
+
+minisize = (img.shape[1]/4,img.shape[0]/4)
+
 hc = cv2.CascadeClassifier("lbpcascade_frontalface.xml")
+img=cv2.resize(img, minisize)
 
 now=datetime.datetime.now()
 faces = hc.detectMultiScale(img)
